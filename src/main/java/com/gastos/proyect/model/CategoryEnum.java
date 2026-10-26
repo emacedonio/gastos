@@ -1,4 +1,14 @@
 package com.gastos.proyect.model;
 
-public class CategoryEnum {
+public enum CategoryEnum {
+
+    FOOD,
+    TRANSPOT,
+    ENTRETAIMENT,
+    HEALTH,
+    EDUCATION,
+    UTILITIES,
+    SHOPPING,
+    ORTHER
 }
+

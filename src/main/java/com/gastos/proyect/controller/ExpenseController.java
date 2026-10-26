@@ -14,13 +14,8 @@ public class ExpenseController {
     @Autowired
     private ExpenseRepository repo;
 
-    @PostMapping()
+    @PostMapping("/crear")
     public Expense crarExpense(@RequestBody Expense nuevoExpense) {
         return nuevoExpense;
     }
-
-    @GetMapping()
-    public
-
-
 }
