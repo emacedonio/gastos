@@ -23,6 +23,7 @@ public class Expense {
 
     @NotBlank
     @Min(value = 3)
+//    TODO: la annotation Min aplica para numeros, para String es size
     private String description;
 
 
@@ -32,6 +33,7 @@ public class Expense {
     private BigDecimal amount;
 
     @Past
+//    TODO: la annotation past no puede aplicar para una entity, lo que hace esta annotation es evaluar una fecha pasada a la establecida, normalmente va en los request
     @NotBlank
     private LocalDate date;
 
