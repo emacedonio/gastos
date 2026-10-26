@@ -1,10 +1,10 @@
 package com.gastos.proyect.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Past;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -19,21 +19,29 @@ public class Expense {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private long id;
 
+    @NotBlank
+    @Min(value = 3)
     private String description;
 
-    @Column(nullable = false, precision = 12,scale = 12)
+
+    @NonNull
+    @Min(value = 0)
+    @Column(nullable = false, precision = 12,scale = 2)
     private BigDecimal amount;
 
+    @Past
+    @NotBlank
     private LocalDate date;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
+    @NotBlank
     private CategoryEnum category;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
+    @NotBlank
     private CategoryEnum paymentMethod;
 }
