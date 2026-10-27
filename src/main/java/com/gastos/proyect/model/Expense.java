@@ -20,6 +20,7 @@ public class Expense {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+//    Anotaciones como @NotNull se colocan en el request, dentro del paquete model
     @NotBlank
     @Size(min = 3, max = 200)
     private String description;

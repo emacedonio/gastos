@@ -1,5 +1,5 @@
 package com.gastos.proyect.mapper;
 
-public interface Mapper1 {
+public interface MapperId {
 
 }
