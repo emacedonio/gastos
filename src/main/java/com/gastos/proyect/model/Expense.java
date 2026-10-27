@@ -6,6 +6,7 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.ZoneId;
 
 @Entity
 @Table
@@ -21,18 +22,14 @@ public class Expense {
 
     @NotBlank
     @Size(min = 3, max = 200)
-//    TODO: la annotation Min aplica para numeros, para String es size (Corregido)
     private String description;
 
-
-    @NonNull
+    @NotNull
     @Min(value = 0)
     @Column(nullable = false, precision = 12,scale = 2)
     private BigDecimal amount;
 
-    @PastOrPresent(message = "La fecha del costo, no puede ser futura :3")
-//      TODO: la annotation past no puede aplicar para una entity, lo que hace esta annotation es evaluar una fecha pasada a la establecida, normalmente va en los request (Revisar corrección)
-    @NotBlank
+//    TODO: correccion aplicada, linea 45
     private LocalDate date;
 
     @Enumerated(EnumType.STRING)
@@ -44,4 +41,10 @@ public class Expense {
     @Column(nullable = false)
     @NotBlank
     private CategoryEnum paymentMethod;
+
+    @PreUpdate
+    public void onCreate(){
+        this.date=LocalDate.now(ZoneId.of("America/Mexico_City"));
+
+    }
 }
