@@ -1,9 +1,7 @@
 package com.gastos.proyect.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.*;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -22,8 +20,8 @@ public class Expense {
     private long id;
 
     @NotBlank
-    @Min(value = 3)
-//    TODO: la annotation Min aplica para numeros, para String es size
+    @Size(min = 3, max = 200)
+//    TODO: la annotation Min aplica para numeros, para String es size (Corregido)
     private String description;
 
 
@@ -32,8 +30,8 @@ public class Expense {
     @Column(nullable = false, precision = 12,scale = 2)
     private BigDecimal amount;
 
-    @Past
-//    TODO: la annotation past no puede aplicar para una entity, lo que hace esta annotation es evaluar una fecha pasada a la establecida, normalmente va en los request
+    @PastOrPresent(message = "La fecha del costo, no puede ser futura :3")
+//      TODO: la annotation past no puede aplicar para una entity, lo que hace esta annotation es evaluar una fecha pasada a la establecida, normalmente va en los request (Revisar corrección)
     @NotBlank
     private LocalDate date;
 
