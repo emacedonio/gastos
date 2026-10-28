@@ -2,13 +2,21 @@ package com.gastos.proyect.dto;
 
 import com.gastos.proyect.model.CategoryEnum;
 import com.gastos.proyect.model.PaymentMethodEnum;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class ExpenseRequest {
 
-    private Long id;
     private String description;
     private BigDecimal amount;
     private CategoryEnum category;

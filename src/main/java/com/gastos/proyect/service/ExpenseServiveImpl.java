@@ -1,5 +1,8 @@
 package com.gastos.proyect.service;
 
+import com.gastos.proyect.dto.ExpenseRequest;
+import com.gastos.proyect.dto.ExpenseResponse;
+import com.gastos.proyect.mapper.MapperId;
 import com.gastos.proyect.model.Expense;
 import com.gastos.proyect.repository.ExpenseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +21,15 @@ public class ExpenseServiveImpl
 
     @Autowired
     private ExpenseRepository expensetRepository;
+    private MapperId mapperId;
 
     @Override
-    public Expense saveExpense(Expense expense) {
-        return expensetRepository.save(expense);
+    public ExpenseResponse saveExpense(ExpenseRequest expense) {
+        Expense expense1 = mapperId.toEntity(expense);
+        expensetRepository.save(expense1);
+
+        ExpenseResponse expenseResponse = mapperId.toResponse(expense1);
+        return expenseResponse;
     }
 
     @Override

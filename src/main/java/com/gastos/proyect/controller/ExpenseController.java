@@ -18,7 +18,8 @@ import java.util.List;
 public class ExpenseController {
 
     @Autowired
-    // private ExpenseRepository repo;
+
+//  private ExpenseRepository repo;
 
     @PostMapping("/api/expenses")
     public ResponseEntity<ExpenseServiveImpl> crearExpense (@RequestBody ExpenseServiveImpl nuevoExpense){
