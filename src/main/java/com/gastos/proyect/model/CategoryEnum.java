@@ -3,12 +3,13 @@ package com.gastos.proyect.model;
 public enum CategoryEnum {
 
     FOOD,
-    TRANSPOT,
-    ENTRETAIMENT,
+    TRANSPORT,
+    ENTERTAINMENT,
     HEALTH,
     EDUCATION,
     UTILITIES,
     SHOPPING,
-    ORTHER
+    OTHER
+
 }
 

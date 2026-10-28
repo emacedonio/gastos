@@ -10,6 +10,7 @@ import org.mapstruct.Mapping;
 public interface MapperId {
 
     // Mapeo cuando los atributos contienen el mismo nombre
+    @Mapping(target = "id", ignore = true)
     Expense toEntity(ExpenseRequest expenseRequest);
 
     // Mapeo cuando contiene nombres distintos

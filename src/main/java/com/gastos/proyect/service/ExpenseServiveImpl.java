@@ -3,6 +3,7 @@ package com.gastos.proyect.service;
 import com.gastos.proyect.dto.ExpenseRequest;
 import com.gastos.proyect.dto.ExpenseResponse;
 import com.gastos.proyect.mapper.MapperId;
+import com.gastos.proyect.model.CategoryEnum;
 import com.gastos.proyect.model.Expense;
 import com.gastos.proyect.repository.ExpenseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,14 +40,22 @@ public class ExpenseServiveImpl
     }
 
     @Override
-    public Expense updateExpense(Expense expense, Long expenseId){
+    public Expense updateExpense(Expense expense, Long expenseId) {
         Expense expDB = expensetRepository.findById(expenseId).get();
 
         return expensetRepository.save(expDB);
     }
 
     @Override
-    public void deleteExpenseById(Long expenseId){
+    public void deleteExpenseById(Long expenseId) {
         expensetRepository.deleteById(expenseId);
     }
+
+    //Metodo de filtrado en la clase CategoryEnum
+    @Override
+    public List<Expense> findByCategory(CategoryEnum categoryEnum) {
+        return expensetRepository.findByCategory(categoryEnum);
+    }
+
+
 }
