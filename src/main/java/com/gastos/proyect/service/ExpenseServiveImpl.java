@@ -5,6 +5,7 @@ import com.gastos.proyect.dto.ExpenseResponse;
 import com.gastos.proyect.mapper.MapperId;
 import com.gastos.proyect.model.CategoryEnum;
 import com.gastos.proyect.model.Expense;
+import com.gastos.proyect.model.PaymentMethodEnum;
 import com.gastos.proyect.repository.ExpenseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -57,5 +58,9 @@ public class ExpenseServiveImpl
         return expensetRepository.findByCategory(categoryEnum);
     }
 
-
+    //Metodo de filtrado por metodo de pago relacionado por el enum metodo de pago, tambien se detalla en la interface service
+    @Override
+    public  List<Expense> findByPayment(PaymentMethodEnum paymentMethodEnum){
+        return expensetRepository.findByPaymentMethod(paymentMethodEnum);
+    }
 }

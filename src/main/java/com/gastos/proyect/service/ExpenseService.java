@@ -4,6 +4,7 @@ import com.gastos.proyect.dto.ExpenseRequest;
 import com.gastos.proyect.dto.ExpenseResponse;
 import com.gastos.proyect.model.CategoryEnum;
 import com.gastos.proyect.model.Expense;
+import com.gastos.proyect.model.PaymentMethodEnum;
 
 import java.util.List;
 
@@ -25,7 +26,7 @@ public interface ExpenseService {
     //lista filtro category
     List<Expense> findByCategory(CategoryEnum categoryEnum);
 
-    //Se puede usar el metodo anterior para los demas filtrados? en caso de que si, como conectarlos al controller
-
+    //lista que se extiende de nuestra entity de la cual se obtienen los datos, esta lista filtrara por metodo de pago.
+    List<Expense> findByPayment(PaymentMethodEnum paymentMethodEnum);
 }
 

@@ -1,19 +1,18 @@
 package com.gastos.proyect.dto;
 
-import com.gastos.proyect.model.CategoryEnum;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+public class ExpenseDateResp {
 
-public class ExpenseReqCategory {
 
-    private CategoryEnum category;
+    //Es necesario asignar los dos atributos de localDate inicio y final en el DTO para este Response
 
 }
