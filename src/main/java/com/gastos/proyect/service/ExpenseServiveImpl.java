@@ -37,7 +37,7 @@ public class ExpenseServiveImpl
 
     @Override
     public ExpenseDateResp saveExpenseDateResp(ExpenseDateResp expense) {
-        Expense expense2 = mapperFechas.toEntity(expense);
+        Expense expense2 = mapperFechas.toEntityFecha(expense);
 
         ExpenseDateResp expenseDateResp = mapperFechas.toResponseDate(expense2);
         return expenseDateResp;
