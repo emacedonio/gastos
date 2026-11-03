@@ -1,5 +1,6 @@
 package com.gastos.proyect.service;
 
+import com.gastos.proyect.dto.ExpenseDateResp;
 import com.gastos.proyect.dto.ExpenseRequest;
 import com.gastos.proyect.dto.ExpenseResponse;
 import com.gastos.proyect.mapper.MapperId;
@@ -32,6 +33,14 @@ public class ExpenseServiveImpl
 
         ExpenseResponse expenseResponse = mapperId.toResponse(expense1);
         return expenseResponse;
+    }
+
+    @Override
+    public ExpenseDateResp saveExpenseDateResp(ExpenseDateResp expense) {
+        Expense expense2 = mapperFechas.toEntity(expense);
+
+        ExpenseDateResp expenseDateResp = mapperFechas.toResponseDate(expense2);
+        return expenseDateResp;
     }
 
     @Override

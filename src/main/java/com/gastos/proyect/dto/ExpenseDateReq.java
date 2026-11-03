@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -14,4 +16,6 @@ public class ExpenseDateReq {
 
     //Es necesario asignar los dos atributos de localDate inicio y final en el DTO para este Request
 
+    private LocalDate fechaFinal;
+    private  LocalDate fechaInicial;
 }
