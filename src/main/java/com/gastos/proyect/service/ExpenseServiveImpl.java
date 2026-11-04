@@ -3,6 +3,7 @@ package com.gastos.proyect.service;
 import com.gastos.proyect.dto.ExpenseDateResp;
 import com.gastos.proyect.dto.ExpenseRequest;
 import com.gastos.proyect.dto.ExpenseResponse;
+import com.gastos.proyect.mapper.MapperFechas;
 import com.gastos.proyect.mapper.MapperId;
 import com.gastos.proyect.model.CategoryEnum;
 import com.gastos.proyect.model.Expense;
@@ -25,6 +26,7 @@ public class ExpenseServiveImpl
     @Autowired
     private ExpenseRepository expensetRepository;
     private MapperId mapperId;
+    private MapperFechas mapperFechas;
 
     @Override
     public ExpenseResponse saveExpense(ExpenseRequest expense) {
@@ -37,9 +39,11 @@ public class ExpenseServiveImpl
 
     @Override
     public ExpenseDateResp saveExpenseDateResp(ExpenseDateResp expense) {
-        Expense expense2 = mapperFechas.toEntityFecha(expense);
+        Expense expenseEntity = mapperFechas.toEntityFecha(expense);
 
-        ExpenseDateResp expenseDateResp = mapperFechas.toResponseDate(expense2);
+        Expense savedExpense = expensetRepository.save(expenseEntity);
+
+        ExpenseDateResp expenseDateResp = mapperFechas.toResponseDate(savedExpense);
         return expenseDateResp;
     }
 

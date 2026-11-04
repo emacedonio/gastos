@@ -14,6 +14,6 @@ public interface MapperFechas {
     @Mapping(target = "date", ignore = true)
     Expense toEntityFecha(ExpenseDateReq expenseDateReq);
 
-    @Mapping(target = "dateResponse", source = "expense.date")
-    Expense toResponseDate(ExpenseDateResp expenseDateResp);
+    @Mapping(target = "dateResponse", source = "date")
+    ExpenseDateResp toResponseDate(Expense expense);
 }
