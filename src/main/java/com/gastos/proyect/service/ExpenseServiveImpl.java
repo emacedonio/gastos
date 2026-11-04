@@ -52,7 +52,6 @@ public class ExpenseServiveImpl
     @Override
     public Expense updateExpense(Expense expense, Long expenseId) {
         Expense expDB = expensetRepository.findById(expenseId).get();
-
         return expensetRepository.save(expDB);
     }
 
