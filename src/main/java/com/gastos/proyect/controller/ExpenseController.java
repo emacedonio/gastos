@@ -47,5 +47,4 @@ public class ExpenseController {
     public Expense updateExpense(@RequestBody Expense expense, @PathVariable("id") Long expenseId) {
         return expenseService.updateExpense(expense, expenseId);
     }
-
 }

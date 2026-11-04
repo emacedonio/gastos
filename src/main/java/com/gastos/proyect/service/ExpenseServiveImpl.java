@@ -1,6 +1,6 @@
 package com.gastos.proyect.service;
 
-import com.gastos.proyect.dto.ExpenseDateResp;
+import com.gastos.proyect.dto.ExpenseDateReq;
 import com.gastos.proyect.dto.ExpenseRequest;
 import com.gastos.proyect.dto.ExpenseResponse;
 import com.gastos.proyect.mapper.MapperFechas;
@@ -38,13 +38,11 @@ public class ExpenseServiveImpl
     }
 
     @Override
-    public ExpenseDateResp saveExpenseDateResp(ExpenseDateResp expense) {
-        Expense expenseEntity = mapperFechas.toEntityFecha(expense);
+    public List <ExpenseResponse> findExpenseResponse(ExpenseDateReq expense) {
+        List <Expense> findExpense = expensetRepository.findByDateBetween(expense.getFechaInicial(), expense.getFechaFinal());
 
-        Expense savedExpense = expensetRepository.save(expenseEntity);
-
-        ExpenseDateResp expenseDateResp = mapperFechas.toResponseDate(savedExpense);
-        return expenseDateResp;
+        List <ExpenseResponse> expenseEntity = mapperFechas.toResponseList(findExpense);
+        return expenseEntity;
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.gastos.proyect.service;
 
+import com.gastos.proyect.dto.ExpenseDateReq;
+import com.gastos.proyect.dto.ExpenseDateResp;
 import com.gastos.proyect.dto.ExpenseRequest;
 import com.gastos.proyect.dto.ExpenseResponse;
 import com.gastos.proyect.model.CategoryEnum;
@@ -12,6 +14,8 @@ import java.util.List;
 public interface ExpenseService {
     //save operation
     ExpenseResponse saveExpense(ExpenseRequest expense);
+
+    List <ExpenseResponse> findExpenseResponse(ExpenseDateReq expense);
 
     //Read operation
     List<Expense>
