@@ -17,10 +17,9 @@ import java.util.List;
 @RestControllerAdvice
 public class ExpenseController {
 
-    @Autowired
+    private ExpenseService expenseService;
 
-//  private ExpenseRepository repo;
-
+//  1.-CREAR GASTO
     @PostMapping("/api/expenses")
     public ResponseEntity<ExpenseServiveImpl> crearExpense (@RequestBody ExpenseServiveImpl nuevoExpense){
 
@@ -29,22 +28,21 @@ public class ExpenseController {
                 .body(nuevoExpense);
     }
 
-//  VARIABLE NO DECLARADA, COMO TOMARLA DEL SERVICE
+//  2.-OBTENER GASTOS
     @GetMapping("api/expenses")
-    public List<Expense> fetchExpenseList() {
-        return  expenseService.fetchExpenseList(expense);
+    public ResponseEntity<List<Expense>> fetchExpenseList() {
+
+        List<Expense> expenses = expenseService.fetchExpenseList();
+        return ResponseEntity.ok(expenses);
     }
 
-//  Falta GETMAPPING POR ID, UTILIZAR MAPPER
-    @GetMapping("/api/expense/{id}")
-    public List<>
-    {
-        return
-    }
-
-//  VARIABLE NO DECLARADA, COMO TOMARLA DEL SERVICE
+//  3.-ACTUALIZAR GASTOS
     @PutMapping("api/expense/{id}")
     public Expense updateExpense(@RequestBody Expense expense, @PathVariable("id") Long expenseId) {
         return expenseService.updateExpense(expense, expenseId);
     }
+
+// 4.-BORRAR GASTO
+    @DeleteMapping("api/expenses/{id}")
+    public
 }

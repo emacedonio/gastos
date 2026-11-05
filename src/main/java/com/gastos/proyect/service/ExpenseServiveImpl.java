@@ -19,8 +19,6 @@ import java.util.List;
 @Service
 public class ExpenseServiveImpl
 
-//Implenentating ExpenseService class
-
     implements ExpenseService {
 
     @Autowired
