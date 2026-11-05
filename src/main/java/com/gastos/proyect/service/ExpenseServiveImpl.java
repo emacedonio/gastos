@@ -55,6 +55,8 @@ public class ExpenseServiveImpl
         return expensetRepository.save(expDB);
     }
 
+
+    //DELETE
     @Override
     public void deleteExpenseById(Long expenseId) {
         expensetRepository.deleteById(expenseId);

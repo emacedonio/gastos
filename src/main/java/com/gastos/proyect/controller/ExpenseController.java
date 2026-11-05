@@ -2,10 +2,8 @@ package com.gastos.proyect.controller;
 
 
 import com.gastos.proyect.model.Expense;
-//import com.gastos.proyect.repository.ExpenseRepository;
 import com.gastos.proyect.service.ExpenseService;
 import com.gastos.proyect.service.ExpenseServiveImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +15,14 @@ import java.util.List;
 @RestControllerAdvice
 public class ExpenseController {
 
+
+//      Inyección de la interfaz del service
     private ExpenseService expenseService;
+
+//      Constructor de la inyección
+    public ExpenseController(ExpenseService expenseService) {
+        this.expenseService = expenseService;
+    }
 
 //  1.-CREAR GASTO
     @PostMapping("/api/expenses")
@@ -42,7 +47,12 @@ public class ExpenseController {
         return expenseService.updateExpense(expense, expenseId);
     }
 
-// 4.-BORRAR GASTO
+//  4.-BORRAR GASTO
     @DeleteMapping("api/expenses/{id}")
-    public
+    public ResponseEntity<Void> deleteExpense(@PathVariable("id") Long expenseId) {
+        expenseService.deleteExpenseById(expenseId);
+        return ResponseEntity.noContent().build();
+    }
+
+//      Faltan endpomits de los mappers
 }
