@@ -1,7 +1,6 @@
 package com.gastos.proyect.service;
 
 import com.gastos.proyect.dto.ExpenseDateReq;
-import com.gastos.proyect.dto.ExpenseDateResp;
 import com.gastos.proyect.dto.ExpenseRequest;
 import com.gastos.proyect.dto.ExpenseResponse;
 import com.gastos.proyect.model.CategoryEnum;

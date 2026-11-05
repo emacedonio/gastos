@@ -54,5 +54,5 @@ public class ExpenseController {
         return ResponseEntity.noContent().build();
     }
 
-//      Faltan endpomits de los mappers
+//      Faltan endponits de los mappers
 }

@@ -9,7 +9,6 @@ import com.gastos.proyect.model.CategoryEnum;
 import com.gastos.proyect.model.Expense;
 import com.gastos.proyect.model.PaymentMethodEnum;
 import com.gastos.proyect.repository.ExpenseRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,12 +19,11 @@ import java.util.List;
 public class ExpenseServiveImpl
 
     implements ExpenseService {
-
-    @Autowired
     private ExpenseRepository expensetRepository;
     private MapperId mapperId;
     private MapperFechas mapperFechas;
 
+    //CREAR
     @Override
     public ExpenseResponse saveExpense(ExpenseRequest expense) {
         Expense expense1 = mapperId.toEntity(expense);
@@ -35,6 +33,7 @@ public class ExpenseServiveImpl
         return expenseResponse;
     }
 
+    // FILTRADO POR FECHAS
     @Override
     public List <ExpenseResponse> findExpenseResponse(ExpenseDateReq expense) {
         List <Expense> findExpense = expensetRepository.findByDateBetween(expense.getFechaInicial(), expense.getFechaFinal());
@@ -43,18 +42,19 @@ public class ExpenseServiveImpl
         return expenseEntity;
     }
 
+    //LEER
     @Override
     public List<Expense>
     fetchExpenseList() {
         return (List<Expense>) expensetRepository.findAll();
     }
 
+    //UPDATE
     @Override
     public Expense updateExpense(Expense expense, Long expenseId) {
         Expense expDB = expensetRepository.findById(expenseId).get();
         return expensetRepository.save(expDB);
     }
-
 
     //DELETE
     @Override
