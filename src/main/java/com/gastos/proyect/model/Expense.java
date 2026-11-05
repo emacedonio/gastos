@@ -30,7 +30,7 @@ public class Expense {
     @Column(nullable = false, precision = 12,scale = 2)
     private BigDecimal amount;
 
-//    TODO: correccion aplicada, linea 45
+//    correccion aplicada, linea 45
     private LocalDate date;
 
     @Enumerated(EnumType.STRING)
