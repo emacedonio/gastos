@@ -14,7 +14,7 @@ public interface ExpenseService {
     //save operation
     ExpenseResponse saveExpense(ExpenseRequest expense);
 
-    List <ExpenseResponse> findExpenseResponse(ExpenseDateReq expense);
+    List<ExpenseResponse> findExpenseResponse(ExpenseDateReq expense);
 
     //Read operation
     List<Expense>

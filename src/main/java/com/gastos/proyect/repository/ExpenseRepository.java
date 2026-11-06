@@ -12,7 +12,7 @@ import java.util.List;
 
 //  Se entiende que @Repository es redundante, al extender JpaRepository Spring sabe que esta interfaz es un componente de persistencia.
 @Repository
-public interface ExpenseRepository extends JpaRepository<Expense, Long>{
+public interface ExpenseRepository extends JpaRepository<Expense, Long> {
 
     List<Expense> findByCategory(CategoryEnum categoryEnum);
 
@@ -24,5 +24,3 @@ public interface ExpenseRepository extends JpaRepository<Expense, Long>{
     //Revisar metodo, no esta siendo utilizado
     List<Expense> findByCategoryOrderByDateDesc(CategoryEnum category);
 }
-
-

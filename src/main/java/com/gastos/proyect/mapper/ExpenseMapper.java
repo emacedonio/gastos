@@ -6,8 +6,10 @@ import com.gastos.proyect.model.Expense;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "Spring")
-public interface MapperId {
+import java.util.List;
+
+@Mapper(componentModel = "spring")
+public interface ExpenseMapper {
 
     // Mapeo cuando los atributos contienen el mismo nombre
     @Mapping(target = "id", ignore = true)
@@ -16,4 +18,6 @@ public interface MapperId {
     // Mapeo cuando contiene nombres distintos
     @Mapping(target = "descriptionResponse", source = "expense.description")
     ExpenseResponse toResponse(Expense expense);
+
+    List<ExpenseResponse> toResponseList(List<Expense> expenses);
 }

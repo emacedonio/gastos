@@ -1,4 +1,5 @@
 package com.gastos.proyect.model;
+
 public enum PaymentMethodEnum {
     CASH,
     DEBIT_CARD,
