@@ -5,6 +5,7 @@ import com.gastos.proyect.dto.ExpenseResponse;
 import com.gastos.proyect.model.Expense;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 
 import java.util.List;
 
@@ -20,4 +21,7 @@ public interface ExpenseMapper {
     ExpenseResponse toResponse(Expense expense);
 
     List<ExpenseResponse> toResponseList(List<Expense> expenses);
+
+    //  Falta mapper update
+    void toUpdate(@MappingTarget Expense expense, ExpenseRequest expenseRequest);
 }

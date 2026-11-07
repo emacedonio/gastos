@@ -18,8 +18,9 @@ import java.util.List;
 //Annotation
 @Service
 @RequiredArgsConstructor
-public class ExpenseServiveImpl implements ExpenseService {
+public class ExpenseServiceImpl implements ExpenseService {
 
+//  se agrega final para garantizar la inmutabilidad
     private final ExpenseRepository expenseRepository;
     private final ExpenseMapper expenseMapper;
 

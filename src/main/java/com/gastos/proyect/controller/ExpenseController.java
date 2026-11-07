@@ -3,7 +3,7 @@ package com.gastos.proyect.controller;
 
 import com.gastos.proyect.model.Expense;
 import com.gastos.proyect.service.ExpenseService;
-import com.gastos.proyect.service.ExpenseServiveImpl;
+import com.gastos.proyect.service.ExpenseServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +15,7 @@ import java.util.List;
 @RestControllerAdvice
 public class ExpenseController {
 
-
+    //  En caso de no funcionar revisar la Documentacion
     //      Inyección de la interfaz del service
     private final ExpenseService expenseService;
 
@@ -26,7 +26,7 @@ public class ExpenseController {
 
     //  1.-CREAR GASTO
     @PostMapping("/api/expenses")
-    public ResponseEntity<ExpenseServiveImpl> crearExpense(@RequestBody ExpenseServiveImpl nuevoExpense) {
+    public ResponseEntity<ExpenseServiceImpl> crearExpense(@RequestBody ExpenseServiceImpl nuevoExpense) {
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)
